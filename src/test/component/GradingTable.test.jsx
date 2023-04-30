@@ -1,4 +1,4 @@
-import {describe, it} from 'vitest';
+import {describe, it, expect} from 'vitest';
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
@@ -127,6 +127,7 @@ describe("GradingTable Component", () => {
 
     it("Should return json summary of grading after adding new row", async () => {
         render(<GradingTable/>)
+        await userEvent.click(screen.getByText("Tambah Mahasiswa"))
         await userEvent.click(screen.getByText("Simpan"))
         const expectation = {
             aspek_penilaian_1: {

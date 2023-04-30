@@ -58,13 +58,20 @@ const GradingTable = () => {
             data.aspek_penilaian_3[`mahasiswa_${i+1}`] = tbodyRef.current.children[i].children[3].firstChild.value
             data.aspek_penilaian_4[`mahasiswa_${i+1}`] = tbodyRef.current.children[i].children[4].firstChild.value
         }
-        console.log(data);
-        preRef.current.innerText = JSON.stringify(data)
+        preRef.current.innerText = JSON.stringify(data, undefined, 2)
     }
     return <>
         <form ref={formRef}>
             <table data-testid="grading-table">
-                <thead></thead>
+                <thead>
+                <tr>
+                    <td></td>
+                    <td>Aspek Penilaian 1</td>
+                    <td>Aspek Penilaian 2</td>
+                    <td>Aspek Penilaian 3</td>
+                    <td>Aspek Penilaian 4</td>
+                </tr>
+                </thead>
                 <tbody ref={tbodyRef}>
                 <tr>
                     <td>Mahasiswa 1</td>
